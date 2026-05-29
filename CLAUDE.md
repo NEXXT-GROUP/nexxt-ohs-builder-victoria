@@ -64,6 +64,26 @@ theming holds together.
   environment (also set in the Vercel project). The MCP server runs `--read-only` by default.
 - **Stripe** (`stripe`) — billing/subscriptions. Server-side keys must come from env vars, never
   the client bundle (Vite exposes only `VITE_`-prefixed vars to the browser).
+- **TikTok Content Posting API** — serverless functions under `api/tiktok/*` (OAuth callback,
+  token refresh, direct/inbox post via `PULL_FROM_URL` from Supabase Storage). Tokens are stored
+  in the `tiktok_accounts` table (`supabase/migrations/0001_tiktok_accounts.sql`). See
+  `api/tiktok/README.md`. Starts in Sandbox + Upload-to-Inbox mode (no audit); direct public
+  posting requires `video.publish` scope and a passed TikTok audit.
+
+### Required environment variables (server-side, set in Vercel)
+These are **not** `VITE_`-prefixed, so they never reach the browser bundle:
+
+| Var | Used by |
+| --- | --- |
+| `SUPABASE_PROJECT_REF`, `SUPABASE_ACCESS_TOKEN` | Supabase **MCP** server (`.mcp.json`) — tooling only |
+| `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` | App runtime / serverless functions (service role bypasses RLS — server only) |
+| `STRIPE_SECRET_KEY` | Stripe server-side calls |
+| `TIKTOK_CLIENT_KEY`, `TIKTOK_CLIENT_SECRET` | TikTok OAuth + posting (`api/tiktok/*`) |
+| `TIKTOK_REDIRECT_URI`, `PUBLIC_BASE_URL` | TikTok OAuth callback + `PULL_FROM_URL` base (must be a TikTok-verified domain) |
+| `TIKTOK_VIDEO_BUCKET`, `TIKTOK_VIDEO_SIGNING_SECRET` | TikTok video proxy (bucket name; signing secret defaults to `TIKTOK_CLIENT_SECRET`) |
+
+Serverless API routes live in `api/**` (Vercel Node functions). `vercel.json` excludes `/api/*`
+from the SPA rewrite so those routes resolve to functions, not `index.html`.
 
 ## Conventions
 
