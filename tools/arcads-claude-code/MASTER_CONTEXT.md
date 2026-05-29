@@ -37,7 +37,7 @@ Then: agitate for one beat → show Nexxt solving it → CTA.
 - Spoken variant: "Start free, link's in the bio."
 
 ### Distribution
-- **TikTok account:** [@nextgenhustle365](https://www.tiktok.com/@nextgenhustle365)
+- **TikTok account:** [@nexxtsitemanager](https://www.tiktok.com/@nexxtsitemanager)
 - **Format:** vertical `9:16`, 30–60s, captions burned in (loud rooms / sound-off viewing).
 
 ### Key tools to feature (one tool per video works best)
@@ -98,4 +98,4 @@ _Fill in from your Arcads dashboard before generating — the agent checks this 
 
 ## Changelog
 
-- **2026-05-29 — Decision:** Pre-filled brand context for Nexxt Site Manager (navy `#0F1B2E` / gold `#C9952A`, Aussie-tradie tone, problem-first hooks, "Link in bio — start free" CTA, TikTok @nextgenhustle365). Key tools to feature: Progress Claim, SWMS, Trade Splitter, Plan Reader, EOT Notice. Why: keep all generated TikTok creative on-brand without re-briefing each run.
+- **2026-05-29 — Decision:** Pre-filled brand context for Nexxt Site Manager (navy `#0F1B2E` / gold `#C9952A`, Aussie-tradie tone, problem-first hooks, "Link in bio — start free" CTA, TikTok @nexxtsitemanager). Key tools to feature: Progress Claim, SWMS, Trade Splitter, Plan Reader, EOT Notice. Why: keep all generated TikTok creative on-brand without re-briefing each run.
