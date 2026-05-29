@@ -11,15 +11,19 @@ export const tools = {
   'progress-claim': {
     title: 'Progress claims, sorted before you leave site 👷 #VicBuilder',
     script: '01_progress_claim.md',
-    // TODO: change to the real Progress Claim route when the UI ships.
-    route: '/dashboard',
+    route: '/progress-claim',
     // Each step: { action: 'goto'|'click'|'type'|'wait'|'scroll', ... }
+    // Selector ids live in src/pages/ProgressClaim.jsx.
     steps: [
-      { action: 'wait', ms: 1500 },
-      { action: 'scroll', y: 400 },
-      { action: 'wait', ms: 1500 },
-      { action: 'scroll', y: 0 },
-      { action: 'wait', ms: 1000 },
+      { action: 'wait', ms: 1200 },
+      { action: 'click', selector: '#pc-stage-2' }, // tick "Lock-up stage"
+      { action: 'wait', ms: 800 },
+      { action: 'click', selector: '#pc-add-variation' },
+      { action: 'wait', ms: 800 },
+      { action: 'click', selector: '#pc-generate' },
+      { action: 'wait', ms: 1200 },
+      { action: 'scroll', y: 500 },
+      { action: 'wait', ms: 1200 },
     ],
   },
 

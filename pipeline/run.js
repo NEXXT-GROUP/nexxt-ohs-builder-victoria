@@ -7,6 +7,7 @@ import { resolveTool } from './tools.config.js'
 import { parseScript } from './lib/parseScript.js'
 import { ensureProduct, generatePresenter } from './lib/arcads.js'
 import { recordScreen } from './lib/record.js'
+import { makePlaceholderPresenter, makePlaceholderScreen } from './lib/mockMedia.js'
 import { stitch } from './lib/stitch.js'
 import { postToInbox } from './lib/tiktok.js'
 import { ensureDir, log, ok, warn, requireEnv } from './lib/util.js'
@@ -36,6 +37,9 @@ Options:
   --no-post             Build the video but don't post to TikTok
   --presenter <path>    Reuse an existing presenter mp4 (skip Arcads)
   --screen <path>       Reuse an existing screen recording (skip Puppeteer)
+  --mock                Generate placeholder presenter + screen with ffmpeg
+                        (no Arcads plan / no running app) to test stitch +
+                        captions + TikTok inbox. Combine with --no-post.
   --dry-run             Parse the script and print the plan only
 `)
   process.exit(toolKey ? 0 : 1)
@@ -57,10 +61,16 @@ if (flag('dry-run')) {
 }
 
 try {
+  const mock = flag('mock')
+  if (mock) warn('--mock: using ffmpeg placeholders (no Arcads, no app)')
+
   // 1. Presenter (Arcads) — generates video + voiceover from the script.
   let presenter = opt('presenter')
   if (presenter) {
     warn(`reusing presenter ${presenter}`)
+  } else if (mock) {
+    presenter = await makePlaceholderPresenter({ outDir, words: script.spokenScript.split(/\s+/).length })
+    ok(`presenter (placeholder) → ${presenter}`)
   } else {
     requireEnv('ARCADS_BASE_URL')
     const productId = await ensureProduct()
@@ -72,6 +82,9 @@ try {
   let screen = opt('screen')
   if (screen) {
     warn(`reusing screen recording ${screen}`)
+  } else if (mock) {
+    screen = await makePlaceholderScreen({ outDir })
+    ok(`screen (placeholder) → ${screen}`)
   } else {
     screen = await recordScreen({
       route: tool.route,

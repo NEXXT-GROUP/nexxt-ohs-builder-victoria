@@ -27,14 +27,21 @@ Tools:  progress-claim, swms, trade-splitter, plan-reader, eot-notice
 --no-post             Build the video but don't post (great for first runs)
 --presenter <path>    Reuse an existing presenter mp4 (skip Arcads)
 --screen <path>       Reuse an existing screen recording (skip Puppeteer)
+--mock                ffmpeg placeholders for presenter + screen (no Arcads
+                      plan, no running app) — test stitch + captions + post
 --dry-run             Parse the script and print the plan only (no API calls, no deps)
 ```
 
-Recommended first run (cheap, no posting):
+Recommended first runs (no Arcads plan needed):
 ```
-node run.js progress-claim --dry-run            # verify parsing
-node run.js progress-claim --no-post            # build the mp4, inspect out/
+node run.js progress-claim --dry-run            # verify parsing (no deps)
+node run.js progress-claim --mock --no-post     # full stitch+captions with placeholders → out/final.mp4
+node run.js progress-claim --mock               # ...and post the placeholder to the TikTok inbox
 ```
+
+`--mock` swaps the Arcads call (and Puppeteer, if no `--screen`) for ffmpeg-generated
+placeholder clips, so you can exercise the **stitch → caption → TikTok inbox** path before
+paying for the Arcads Pro plan. Posting still needs the Supabase + TikTok env vars.
 
 ## Prerequisites
 
