@@ -66,9 +66,10 @@ export default function Dashboard() {
         />
         <StatCard label="Near Misses (30d)" value={dashboardKpis.nearMisses30d} />
         <StatCard
-          label="LTI Rate"
+          label="LTIFR"
           value={dashboardKpis.ltiRate.toFixed(1)}
           tone="green"
+          sub="per 1M hrs"
         />
       </div>
 

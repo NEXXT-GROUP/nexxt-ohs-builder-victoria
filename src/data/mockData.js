@@ -432,7 +432,7 @@ export const dashboardKpis = {
   pendingSwms:            11,
   workSafeNotifications:  2,
   nearMisses30d:          4,
-  ltiRate:                0.7,
+  ltiRate:         4.2,
 };
 
 export const complianceTrend = [
