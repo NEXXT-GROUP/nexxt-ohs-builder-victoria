@@ -423,14 +423,17 @@ export const toolboxStats = {
 // ---------------------------------------------------------------------------
 // Dashboard KPIs
 // ---------------------------------------------------------------------------
-export const dashboardKpis = [
-  { label: "Overall Compliance", value: "91%", trend: "up", delta: "+3%", color: "green" },
-  { label: "Active Stakeholders", value: "142", trend: "up", delta: "+8", color: "blue" },
-  { label: "Open Incidents", value: "3", trend: "down", delta: "-1", color: "amber" },
-  { label: "SWMS Signed", value: "94%", trend: "up", delta: "+2%", color: "green" },
-  { label: "Toolbox Meetings", value: "6", trend: "neutral", delta: "this month", color: "blue" },
-  { label: "Expiring Certs", value: "7", trend: "up", delta: "+2", color: "red" },
-];
+export const dashboardKpis = {
+  activeProjects:         5,
+  activeWorkers:          142,
+  compliance:             91,
+  pendingInductions:      8,
+  openIncidents:          3,
+  pendingSwms:            11,
+  workSafeNotifications:  2,
+  nearMisses30d:          4,
+  ltiRate:                0.7,
+};
 
 export const complianceTrend = [
   { month: "Jan", compliance: 84 },
