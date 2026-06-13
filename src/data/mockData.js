@@ -532,4 +532,11 @@ export const permissionMatrix = {
   builder_admin:    { projects: true,  workers: true,  compliance: true,  incidents: true,  swms: true,  diary: true,  toolbox: true,  reports: true,  admin: true,  settings: true  },
   hse_manager:      { projects: false, workers: true,  compliance: true,  incidents: true,  swms: true,  diary: false, toolbox: true,  reports: true,  admin: false, settings: false },
   site_supervisor:  { projects: false, workers: true,  compliance: false, incidents: true,  swms: false, diary: true,  toolbox: true,  reports: false, admin: false, settings: false },
-  worker:           { projects: false, workers: false, compliance: false, incidents: false, swms: true,  diary: false, toolbox: false, reports: false, admin: false, setting
+  worker:           { projects: false, workers: false, compliance: false, incidents: false, swms: true,  diary: false, toolbox: false, reports: false, admin: false, settings: false },
+};
+export const roleCounts = {
+  builder_admin:   1,
+  hse_manager:     2,
+  site_supervisor: 3,
+  worker:          24,
+};

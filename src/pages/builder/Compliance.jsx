@@ -131,4 +131,7 @@ export default function Compliance() {
             </div>
           </div>
         )}
-      </
+      </Modal>
+    </div>
+  );
+}

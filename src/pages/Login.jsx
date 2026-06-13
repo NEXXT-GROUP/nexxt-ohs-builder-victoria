@@ -127,4 +127,12 @@ export default function Login() {
             🚀 Continue in Demo Mode
           </Button>
 
-          <p className="mt-6 text-center text-xs text
+          <p className="mt-6 text-center text-xs text-slate-400">
+            Demo mode — credentials are pre-filled. Choose a role above and
+            sign in to explore the prototype.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}

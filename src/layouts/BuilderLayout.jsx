@@ -177,4 +177,5 @@ export default function BuilderLayout() {
         </main>
       </div>
     </div>
-  
+  );
+}

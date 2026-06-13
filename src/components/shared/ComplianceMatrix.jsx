@@ -55,4 +55,5 @@ export default function ComplianceMatrix({ workers, onCellClick }) {
         })}
       </TBody>
     </Table>
-  
+  );
+}

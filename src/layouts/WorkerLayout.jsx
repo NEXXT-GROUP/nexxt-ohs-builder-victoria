@@ -65,4 +65,5 @@ export default function WorkerLayout() {
         </nav>
       </div>
     </div>
-  
+  );
+}

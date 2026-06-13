@@ -204,4 +204,5 @@ export default function SWMS() {
         </div>
       </div>
     </div>
-  
+  );
+}
